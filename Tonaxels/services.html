@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Tonaxels Technology</title>
+  <meta name="description" content="Comprehensive digital solutions including web development, mobile apps, and UI/UX design">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    /* All CSS from home page */
+    :root {
+      --primary-blue: #2962ff;
+      --dark-blue:rgb(53, 128, 240);
+      --light-blue: #e3f2fd;
+      --light-gray: #f5f7fa;
+      --dark-gray:rgb(89, 92, 94);
+      --medium-gray: #607d8b;
+      --white: #ffffff;
+      --black: #212121;
+      --success: #4caf50;
+      --error: #f44336;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+      --max-width: 1200px;
+    }
+
+    [data-theme="dark"] {
+      --light-gray: #121212;
+      --dark-gray: #e0e0e0;
+      --medium-gray: #b0bec5;
+      --white: #1e1e1e;
+      --black: #f5f5f5;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.25);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-blue);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-blue);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark-gray);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--dark-gray);
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      color: var(--primary-blue);
+      transform: rotate(30deg);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Video Container */
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Video Styling */
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Fallback Image Styling (shown when video can't load) */
+    .video-container img {
+      display: none; /* Initially hidden */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Video Overlay */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+     /* background: linear-gradient(135deg, rgba(41, 98, 255, 0.85), rgba(13, 71, 161, 0.85));*/
+    }
+
+    /* Fallback for browsers that don't support video */
+    .no-video .video-container video {
+      display: none;
+    }
+    .no-video .video-container img {
+      display: block;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: var(--transition);
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--white);
+      color: var(--primary-blue);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--medium-gray);
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-gray);
+    }
+
+    .card p {
+      color: var(--medium-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-blue);
+      font-weight: 500;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .card-link:hover {
+      gap: 1rem;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Services Section */
+    .services .card {
+      text-align: center;
+    }
+
+    /* Service Details */
+    .service-details {
+      margin-top: 3rem;
+    }
+
+    .service-feature {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: center;
+    }
+
+    .service-feature.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .service-feature-img {
+      flex: 1;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .service-feature-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .service-feature-img:hover img {
+      transform: scale(1.05);
+    }
+
+    .service-feature-content {
+      flex: 1;
+    }
+
+    .service-feature-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      color: var(--dark-blue);
+    }
+
+    .service-feature-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+
+    .service-feature-list li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.75rem;
+    }
+
+    .service-feature-list li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary-blue);
+    }
+
+    /* Testimonials */
+    .testimonial {
+      position: relative;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 4rem;
+      font-family: serif;
+      color: var(--primary-blue);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--medium-gray);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark-gray);
+    }
+
+    .author-info p {
+      font-size: 0.875rem;
+      color: var(--medium-gray);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-image: url('assets/images/cta-bg.jpeg');
+      color: var(--white);
+      text-align: center;
+      padding: 6rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      opacity: 0.9;
+      font-size: 1.25rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo img {
+      height: 100px;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background-color: var(--primary-blue);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary-blue);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary-blue);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.8;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+
+      .service-feature {
+        flex-direction: column;
+      }
+
+      .service-feature.reverse {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1.5rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mt-4 { margin-top: 2rem; }
+    .mt-5 { margin-top: 3rem; }
+
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mb-5 { margin-bottom: 3rem; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+<nav>
+  <div class="nav-container container">
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.png" alt="Tonaxels Technology Logo">
+      <span>TONAXELS'</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="technologies.html">Technologies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="video-container">
+      <video autoplay muted loop playsinline id="hero-video">
+        <source src="assets/videos/hero-bg2.mp4" type="video/mp4">
+        <source src="assets/videos/hero-bg.webm" type="video/webm">
+        <img src="assets/images/hero-fallback.jpg" alt="Digital technology background">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    
+    <div class="hero-content container">
+      <h1 data-aos="fade-up">Our Comprehensive Services</h1>
+      <p data-aos="fade-up" data-aos-delay="100">We deliver cutting-edge digital solutions tailored to your business needs</p>
+      <div class="btn-group" data-aos="fade-up" data-aos-delay="200">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="contact.html" class="btn btn-secondary">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Our Service Offerings</h2>
+        <p>We provide end-to-end digital solutions to help your business thrive</p>
+      </div>
+      
+      <div class="grid">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Web Development</h3>
+          <p>Custom websites and web applications built with modern technologies that are fast, secure, and scalable.</p>
+          <ul class="service-feature-list">
+            <li>Custom CMS Development</li>
+            <li>E-commerce Solutions</li>
+            <li>Web Portals & Dashboards</li>
+            <li>API Development & Integration</li>
+            <li>Progressive Web Apps</li>
+          </ul>
+        </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Native and cross-platform mobile applications for iOS and Android that drive engagement.</p>
+          <ul class="service-feature-list">
+            <li>iOS & Android Native Apps</li>
+            <li>Cross-platform with Flutter</li>
+            <li>App UI/UX Design</li>
+            <li>API Integration</li>
+            <li>App Store Optimization</li>
+          </ul>
+        </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Beautiful, intuitive interfaces designed to enhance user experience and conversions.</p>
+          <ul class="service-feature-list">
+            <li>User Research & Testing</li>
+            <li>Wireframing & Prototyping</li>
+            <li>Visual Design Systems</li>
+            <li>Interaction Design</li>
+            <li>Design Handoff & Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Development Details -->
+  <section class="service-details bg-light">
+    <div class="container">
+      <div class="service-feature" data-aos="fade-up">
+        <div class="service-feature-img">
+          <img src="assets/images/services/web-dev.jpeg" alt="Web Development Process">
+        </div>
+        <div class="service-feature-content">
+          <h3>Custom Web Development</h3>
+          <p>We build responsive, high-performance websites and web applications using modern technologies like React, Angular, Vue.js, and Node.js. Our development process ensures your site is optimized for speed, security, and search engines.</p>
+          <ul class="service-feature-list">
+            <li>Custom CMS development with WordPress, Strapi, or custom solutions</li>
+            <li>E-commerce platforms with WooCommerce, Shopify, or custom builds</li>
+            <li>Enterprise web applications with scalable architectures</li>
+            <li>API development and third-party integrations</li>
+            <li>Ongoing maintenance and support</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="service-feature reverse" data-aos="fade-up">
+        <div class="service-feature-img">
+          <img src="assets/images/services/mobile-dev1.jpeg" alt="Mobile App Development">
+        </div>
+        <div class="service-feature-content">
+          <h3>Mobile App Development</h3>
+          <p>From concept to deployment, we create mobile experiences that users love. Whether you need a native iOS/Android app or a cross-platform solution, we deliver high-quality mobile applications.</p>
+          <ul class="service-feature-list">
+            <li>Native iOS development with Swift</li>
+            <li>Native Android development with Kotlin</li>
+            <li>Cross-platform development with Flutter</li>
+            <li>Mobile API development and integration</li>
+            <li>App store submission and optimization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Services -->
+  <section class="services">
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <h2>Additional Services</h2>
+        <p>Complete digital solutions for your business</p>
+      </div>
+      
+      <div class="grid">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-icon">
+            <i class="fas fa-search-dollar"></i>
+          </div>
+          <h3>Digital Marketing</h3>
+          <p>Comprehensive digital marketing strategies to grow your online presence and customer base.</p>
+          <ul class="service-feature-list">
+            <li>Search Engine Optimization (SEO)</li>
+            <li>Pay-Per-Click Advertising (PPC)</li>
+            <li>Social Media Marketing</li>
+            <li>Content Marketing</li>
+            <li>Email Marketing Campaigns</li>
+          </ul>
+        </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Cloud Solutions</h3>
+          <p>Scalable cloud infrastructure and services to power your digital transformation.</p>
+          <ul class="service-feature-list">
+            <li>Cloud Architecture Design</li>
+            <li>AWS, Azure & Google Cloud</li>
+            <li>Serverless Applications</li>
+            <li>Cloud Migration Services</li>
+            <li>DevOps & CI/CD Pipelines</li>
+          </ul>
+        </div>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Business Intelligence</h3>
+          <p>Data-driven insights to help you make better business decisions.</p>
+          <ul class="service-feature-list">
+            <li>Data Analytics & Visualization</li>
+            <li>Custom Dashboard Development</li>
+            <li>Predictive Analytics</li>
+            <li>Data Warehousing</li>
+            <li>Machine Learning Solutions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Ready to Transform Your Business?</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Let's discuss how we can help you achieve your digital goals</p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <a href="contact.html" class="btn btn-primary">Get Started Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Tonaxels Technology Logo">
+            <span>Tonaxels</span>
+          </div>
+          <p>We build custom digital solutions that help businesses grow and succeed in the modern world.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="technologies.html">Technologies</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">Mobile App Development</a></li>
+            <li><a href="services.html">UI/UX Design</a></li>
+            <li><a href="services.html">Digital Marketing</a></li>
+            <li><a href="services.html">Cloud Solutions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Tonaxels Technology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out'
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      themeToggle.innerHTML = theme === 'light' 
+        ? '<i class="fas fa-moon"></i>' 
+        : '<i class="fas fa-sun"></i>';
+    }
+    
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+    
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Update copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Video fallback detection
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('hero-video');
+      
+      // Check if video can play
+      video.addEventListener('error', function() {
+        document.querySelector('.hero').classList.add('no-video');
+      });
+      
+      // Mobile fallback (optional)
+      if(window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.querySelector('.hero').classList.add('no-video');
+        video.pause();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details | Tonaxels Technology</title>
+  <meta name="description" content="Detailed case study of our project">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+     :root {
+      --primary-blue: #2962ff;
+      --dark-blue:rgb(53, 128, 240);
+      --light-blue: #e3f2fd;
+      --light-gray: #f5f7fa;
+      --dark-gray:rgb(89, 92, 94);
+      --medium-gray: #607d8b;
+      --white: #ffffff;
+      --black: #212121;
+      --success: #4caf50;
+      --error: #f44336;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+      --max-width: 1200px;
+    }
+
+    [data-theme="dark"] {
+      --light-gray: #121212;
+      --dark-gray: #e0e0e0;
+      --medium-gray: #b0bec5;
+      --white: #1e1e1e;
+      --black: #f5f5f5;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.25);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-blue);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-blue);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark-gray);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--dark-gray);
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      color: var(--primary-blue);
+      transform: rotate(30deg);
+    }
+
+    /* Hero Section */
+    .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+  }
+
+  /* Video Container */
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  /* Video Styling */
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Fallback Image Styling (shown when video can't load) */
+  .video-container img {
+    display: none; /* Initially hidden */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Video Overlay */
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   /* background: linear-gradient(135deg, rgba(41, 98, 255, 0.85), rgba(13, 71, 161, 0.85));*/
+  }
+
+  /* Fallback for browsers that don't support video */
+  .no-video .video-container video {
+    display: none;
+  }
+  .no-video .video-container img {
+    display: block;
+  }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+   
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: var(--transition);
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--white);
+      color: var(--primary-blue);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--medium-gray);
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-gray);
+    }
+
+    .card p {
+      color: var(--medium-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-blue);
+      font-weight: 500;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .card-link:hover {
+      gap: 1rem;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Services Section */
+    .services .card {
+      text-align: center;
+    }
+
+    /* Portfolio Section */
+    .portfolio-item {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(41, 98, 255, 0.9);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Technologies Section */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .tech-icon:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tech-icon img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      position: relative;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 4rem;
+      font-family: serif;
+      color: var(--primary-blue);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--medium-gray);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark-gray);
+    }
+
+    .author-info p {
+      font-size: 0.875rem;
+      color: var(--medium-gray);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      background-color: var(--dark-blue);
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--light-blue);
+      color: var(--primary-blue);
+      border-radius: 50%;
+      font-size: 1.25rem;
+    }
+
+    .contact-details h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark-gray);
+    }
+
+    .contact-details a {
+      color: var(--medium-gray);
+      transition: var(--transition);
+    }
+
+    .contact-details a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo img {
+      height: 100px;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background-color: var(--primary-blue);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary-blue);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary-blue);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.8;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1.5rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mt-4 { margin-top: 2rem; }
+    .mt-5 { margin-top: 3rem; }
+
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mb-5 { margin-bottom: 3rem; }
+  </style>
+  <style>
+  /* Additional Styles for Enhanced UI/UX */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .lead-text {
+    font-size: 1.25rem;
+    color: var(--medium-gray);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .meta-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  
+  .meta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .meta-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    border-radius: 50%;
+    font-size: 1rem;
+  }
+  
+  .project-gallery-container {
+    margin: 3rem 0;
+  }
+  
+  .gallery-main {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .gallery-main-image {
+    aspect-ratio: 16/9;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gallery-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--white);
+  }
+  
+  .gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    color: var(--primary-blue);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+  }
+  
+  .gallery-nav-btn:hover {
+    background-color: var(--primary-blue);
+    color: white;
+  }
+  
+  #gallery-prev {
+    left: 1rem;
+  }
+  
+  #gallery-next {
+    right: 1rem;
+  }
+  
+  .gallery-thumbnails {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .gallery-thumbnail {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: var(--transition);
+    flex-shrink: 0;
+  }
+  
+  .gallery-thumbnail:hover, .gallery-thumbnail.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px var(--primary-blue);
+  }
+  
+  .gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .project-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 992px) {
+    .project-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .content-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+  }
+  
+  .content-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    border-radius: 50%;
+    font-size: 1rem;
+  }
+  
+  .animated-text {
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  
+  .feature-card {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    transition: var(--transition);
+  }
+  
+  .feature-card:hover {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-3px);
+  }
+  
+  .feature-icon {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.75rem;
+  }
+  
+  .results-list {
+    margin-top: 1rem;
+  }
+  
+  .results-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .results-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+  }
+  
+  .sidebar-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+  }
+  
+  .sidebar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1.25rem 0;
+  }
+  
+  .card-icon {
+    color: var(--primary-blue);
+    font-size: 1.25rem;
+  }
+  
+  .card-body {
+    padding: 0 1.25rem 1.25rem;
+  }
+  
+  .tech-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tech-badge {
+    background-color: var(--light-blue);
+    color: var(--primary-blue);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .tech-badge:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  .highlight-list {
+    list-style: none;
+  }
+  
+  .highlight-list li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .highlight-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+  }
+  
+  .testimonial-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    transition: var(--transition);
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .testimonial-quote {
+    position: relative;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  
+  .testimonial-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 3rem;
+    font-family: serif;
+    color: var(--primary-blue);
+    opacity: 0.2;
+    line-height: 1;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .testimonial-author-info h4 {
+    margin-bottom: 0.25rem;
+  }
+  
+  .testimonial-author-info p {
+    font-size: 0.875rem;
+    color: var(--medium-gray);
+  }
+</style>
+
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container container">
+      <a href="index.html" class="logo">
+        <img src="assets/images/logo.png" alt="Tonaxels Technology Logo">
+        <span>TONAXELS'</span>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="technologies.html">Technologies</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="video-container">
+      <video autoplay muted loop playsinline id="hero-video">
+        <source src="assets/videos/hero-bg8.mp4" type="video/mp4">
+        <source src="assets/videos/hero-bg.webm" type="video/webm">
+        <img src="assets/images/hero-fallback.jpeg" alt="Digital technology background">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    
+    <div class="hero-content container">
+      <h1 id="project-title" data-aos="fade-up">Loading Project...</h1>
+      <p id="project-subtitle" data-aos="fade-up" data-aos-delay="100">Please wait while we load the project details</p>
+      <div class="btn-group" data-aos="fade-up" data-aos-delay="200">
+        <a href="#project-details" class="btn btn-primary">View Details</a>
+        <a href="contact.html" class="btn btn-secondary">Start Your Project</a>
+      </div>
+    </div>
+  </section>
+
+ <!-- Project Details Section -->
+<section id="project-details" class="project-section">
+  <div class="container">
+    <!-- Project Header with Meta Info -->
+    <div class="project-header" data-aos="fade-up">
+      <div class="section-title">
+        <h2 id="project-overview-title" class="text-gradient">Project Overview</h2>
+        <p id="project-overview-subtitle" class="lead-text">Loading project information...</p>
+      </div>
+      
+      <div class="project-meta-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="meta-card">
+          <div class="meta-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <div>
+            <span class="meta-label">Client</span>
+            <span id="project-client" class="meta-value">Loading...</span>
+          </div>
+        </div>
+        
+        <div class="meta-card">
+          <div class="meta-icon">
+            <i class="fas fa-industry"></i>
+          </div>
+          <div>
+            <span class="meta-label">Industry</span>
+            <span id="project-industry" class="meta-value">Loading...</span>
+          </div>
+        </div>
+        
+        <div class="meta-card">
+          <div class="meta-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div>
+            <span class="meta-label">Services</span>
+            <span id="project-services" class="meta-value">Loading...</span>
+          </div>
+        </div>
+        
+        <div class="meta-card">
+          <div class="meta-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div>
+            <span class="meta-label">Year</span>
+            <span id="project-year" class="meta-value">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project Gallery Carousel -->
+    <div id="project-gallery" class="project-gallery-container" data-aos="fade-up">
+      <div class="gallery-main">
+        <div id="main-gallery-image" class="gallery-main-image">
+          <!-- Main image will be inserted here by JavaScript -->
+        </div>
+        <div class="gallery-controls">
+          <button id="gallery-prev" class="gallery-nav-btn"><i class="fas fa-chevron-left"></i></button>
+          <button id="gallery-next" class="gallery-nav-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div id="gallery-thumbnails" class="gallery-thumbnails">
+        <!-- Thumbnails will be inserted here by JavaScript -->
+      </div>
+    </div>
+    
+    <!-- Project Content -->
+    <div class="project-content-grid">
+      <!-- Main Content Column -->
+      <div class="project-main-content">
+        <!-- Challenge Section -->
+        <div class="content-card" data-aos="fade-up">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3>The Challenge</h3>
+          </div>
+          <div class="content-body">
+            <p id="project-challenge" class="animated-text">Loading challenge description...</p>
+          </div>
+        </div>
+        
+        <!-- Solution Section -->
+        <div class="content-card" data-aos="fade-up">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Our Solution</h3>
+          </div>
+          <div class="content-body">
+            <p id="project-solution" class="animated-text">Loading solution description...</p>
+            
+            <!-- Features Grid -->
+            <div id="project-features" class="features-grid">
+              <!-- Feature cards will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="content-card" data-aos="fade-up">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>The Results</h3>
+          </div>
+          <div class="content-body">
+            <p id="project-results" class="animated-text">Loading results description...</p>
+            <div id="project-results-list" class="results-list">
+              <!-- Results will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar Column -->
+      <div class="project-sidebar">
+        <!-- Technologies Card -->
+        <div class="sidebar-card" data-aos="fade-up">
+          <div class="card-header">
+            <i class="fas fa-microchip card-icon"></i>
+            <h3>Technologies Used</h3>
+          </div>
+          <div class="card-body">
+            <div id="tech-list" class="tech-cloud">
+              <!-- Technology badges will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlights Card -->
+        <div class="sidebar-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-header">
+            <i class="fas fa-star card-icon"></i>
+            <h3>Project Highlights</h3>
+          </div>
+          <div class="card-body">
+            <ul id="project-highlights" class="highlight-list">
+              <!-- Highlights will be inserted here by JavaScript -->
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Testimonial Card -->
+        <div id="client-testimonial" class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <!-- Testimonial will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-content container" data-aos="fade-up">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Let's discuss how we can help you achieve your digital goals with our cutting-edge solutions.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn btn-primary">Get Started</a>
+        <a href="tel:+254792069328" class="btn btn-secondary">Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+ <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="assets/images/logo.png" alt="Tonaxels Technology Logo">
+            <span>Tonaxels</span>
+          </div>
+          <p>We build custom digital solutions that help businesses grow and succeed in the modern world.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="technologies.html">Technologies</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html">Web Development</a></li>
+            <li><a href="services.html">Mobile App Development</a></li>
+            <li><a href="services.html">UI/UX Design</a></li>
+            <li><a href="services.html">Digital Marketing</a></li>
+            <li><a href="services.html">Cloud Solutions</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="contact.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Tonaxels Technology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out'
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      themeToggle.innerHTML = theme === 'light' 
+        ? '<i class="fas fa-moon"></i>' 
+        : '<i class="fas fa-sun"></i>';
+    }
+    
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+    
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Update copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href').includes(current)) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Video fallback detection
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.getElementById('hero-video');
+      
+      // Check if video can play
+      video.addEventListener('error', function() {
+        document.querySelector('.hero').classList.add('no-video');
+      });
+      
+      // Mobile fallback (optional)
+      if(window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        document.querySelector('.hero').classList.add('no-video');
+        video.pause();
+      }
+    });
+
+    // Project data for all 6 projects
+    const projects = {
+      ecommerce: {
+        title: "E-commerce Platform",
+        subtitle: "A comprehensive online shopping solution for FashionHub",
+        overview: "A modern e-commerce platform that increased online sales by 40%",
+        client: "FashionHub",
+        industry: "Retail & Fashion",
+        services: "Web Development, UI/UX",
+        year: "2023",
+        challenge: "FashionHub needed to transition from their outdated e-commerce system to a modern platform that could handle increased traffic, provide a seamless mobile experience, and integrate with their inventory management system.",
+        solution: "We developed a custom e-commerce platform using React for the frontend and Node.js for the backend, with a MongoDB database.",
+        features: [
+          {
+            icon: "fa-mobile-alt",
+            title: "Mobile-First Design",
+            description: "Responsive design that prioritizes mobile users, who make up 65% of their traffic."
+          },
+          {
+            icon: "fa-bolt",
+            title: "Fast Performance",
+            description: "Optimized assets and code to achieve sub-2s page loads, even on mobile networks."
+          },
+          {
+            icon: "fa-shopping-cart",
+            title: "Streamlined Checkout",
+            description: "Reduced checkout steps from 5 to 2, with guest checkout option."
+          },
+          {
+            icon: "fa-chart-line",
+            title: "Analytics Integration",
+            description: "Built-in analytics to track user behavior and conversion funnels."
+          }
+        ],
+        results: "Within three months of launching the new platform, FashionHub saw dramatic improvements in key metrics:",
+        resultsList: [
+          "40% increase in online sales",
+          "35% reduction in bounce rate",
+          "60% faster page load times",
+          "20% increase in average order value",
+          "75% completion rate for checkout (up from 45%)"
+        ],
+        technologies: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe API", "AWS", "Docker"],
+        highlights: [
+          "Custom CMS for product management",
+          "AI-powered recommendation engine",
+          "Multi-currency support",
+          "Inventory synchronization",
+          "SEO optimized structure"
+        ],
+        testimonial: {
+          quote: "Tonaxels delivered our e-commerce platform ahead of schedule and under budget. Their attention to detail and technical expertise exceeded our expectations. We've seen a 40% increase in online sales since launch.",
+          name: "Tonny",
+          position: "CEO, FashionHub",
+          image: "assets/images/testimonials/client1.jpg"
+        },
+        gallery: [
+          "assets/images/projects/ecommerce-homepage.jpg",
+          "assets/images/projects/ecommerce-product.jpg",
+          "assets/images/projects/ecommerce-checkout.jpg"
+        ]
+      },
+      fitness: {
+        title: "Fitness Tracker App",
+        subtitle: "Mobile application for health and fitness tracking",
+        overview: "A fitness app that helped users achieve their health goals with 300% user growth",
+        client: "HealthTrack",
+        industry: "Health & Fitness",
+        services: "Mobile App Development",
+        year: "2023",
+        challenge: "HealthTrack needed a mobile app that could track various fitness metrics, provide personalized recommendations, and integrate with wearable devices.",
+        solution: "We developed a cross-platform mobile app using React Native with a Firebase backend for real-time data synchronization.",
+        features: [
+          {
+            icon: "fa-heartbeat",
+            title: "Health Metrics",
+            description: "Track heart rate, steps, calories burned, and sleep patterns"
+          },
+          {
+            icon: "fa-dumbbell",
+            title: "Workout Plans",
+            description: "Personalized workout plans based on user goals and fitness level"
+          },
+          {
+            icon: "fa-chart-pie",
+            title: "Progress Tracking",
+            description: "Visualize progress with charts and milestones"
+          },
+          {
+            icon: "fa-users",
+            title: "Social Features",
+            description: "Connect with friends and share achievements"
+          }
+        ],
+        results: "The app achieved remarkable success in its first year:",
+        resultsList: [
+          "300% increase in user base",
+          "4.8/5 average app store rating",
+          "85% daily active users",
+          "40% premium subscription conversion"
+        ],
+        technologies: ["React Native", "Firebase", "Redux", "Google Fit API", "Apple HealthKit"],
+        highlights: [
+          "Cross-platform compatibility",
+          "Offline functionality",
+          "Wearable device integration",
+          "Push notifications",
+          "In-app purchases"
+        ],
+        testimonial: {
+          quote: "The mobile app developed by Tonaxels has received fantastic feedback from our users. The intuitive interface and smooth performance have helped us grow our user base by 300% in just six months.",
+          name: "Odhiambo",
+          position: "Product Director, HealthTrack",
+          image: "assets/images/testimonials/client3.jpg"
+        },
+        gallery: [
+          "assets/images/projects/fitness-app-home.jpg",
+          "assets/images/projects/fitness-app-workout.jpg",
+          "assets/images/projects/fitness-app-progress.jpg"
+        ]
+      },
+      dashboard: {
+        title: "Analytics Dashboard",
+        subtitle: "Data visualization platform for business intelligence",
+        overview: "An interactive dashboard that transformed data into actionable insights",
+        client: "DataInsight",
+        industry: "Business Intelligence",
+        services: "UI/UX Design, Web Development",
+        year: "2022",
+        challenge: "DataInsight needed a modern dashboard to visualize complex datasets and provide real-time business insights to non-technical users.",
+        solution: "We created a custom dashboard with interactive charts, filters, and real-time data updates using D3.js and Vue.js.",
+        features: [
+          {
+            icon: "fa-chart-bar",
+            title: "Interactive Charts",
+            description: "Customizable charts with drill-down capabilities"
+          },
+          {
+            icon: "fa-filter",
+            title: "Advanced Filtering",
+            description: "Dynamic filters for slicing data multiple ways"
+          },
+          {
+            icon: "fa-clock",
+            title: "Real-time Updates",
+            description: "Live data refreshes without page reloads"
+          },
+          {
+            icon: "fa-download",
+            title: "Export Options",
+            description: "Export reports in multiple formats (PDF, CSV, PNG)"
+          }
+        ],
+        results: "The dashboard delivered significant value to the organization:",
+        resultsList: [
+          "75% reduction in time to generate reports",
+          "60% increase in data-driven decisions",
+          "90% user satisfaction rate",
+          "50% decrease in support requests for data"
+        ],
+        technologies: ["Vue.js", "D3.js", "Node.js", "MongoDB", "WebSockets"],
+        highlights: [
+          "Custom data visualization components",
+          "Role-based access control",
+          "Responsive design for all devices",
+          "Customizable dashboard layouts",
+          "Automated report generation"
+        ],
+        testimonial: {
+          quote: "Tonaxels transformed our data analysis capabilities with their intuitive dashboard. What used to take hours now takes minutes, and our team can spot trends and opportunities we were previously missing.",
+          name: "Axel",
+          position: "Operations Manager, DataInsight",
+          image: "assets/images/testimonials/client2.jpg"
+        },
+        gallery: [
+          "assets/images/projects/dashboard-overview.jpg",
+          "assets/images/projects/dashboard-charts.jpg",
+          "assets/images/projects/dashboard-filters.jpg"
+        ]
+      },
+      realestate: {
+        title: "Real Estate Portal",
+        subtitle: "Comprehensive property listing and management platform",
+        overview: "A real estate platform that connected buyers and sellers with intelligent matching",
+        client: "Prime Properties",
+        industry: "Real Estate",
+        services: "Web Development",
+        year: "2023",
+        challenge: "Prime Properties needed a modern platform to showcase properties, connect with potential buyers, and streamline their sales process.",
+        solution: "We built a feature-rich portal with property listings, virtual tours, mortgage calculators, and agent CRM tools.",
+        features: [
+          {
+            icon: "fa-search",
+            title: "Advanced Search",
+            description: "Powerful filters to find perfect properties"
+          },
+          {
+            icon: "fa-vr-cardboard",
+            title: "Virtual Tours",
+            description: "Immersive 360° property views"
+          },
+          {
+            icon: "fa-calculator",
+            title: "Mortgage Tools",
+            description: "Calculate payments and affordability"
+          },
+          {
+            icon: "fa-envelope",
+            title: "Lead Management",
+            description: "Track and follow up with potential buyers"
+          }
+        ],
+        results: "The platform revolutionized their business operations:",
+        resultsList: [
+          "50% more qualified leads",
+          "30% faster sales cycle",
+          "4x more property inquiries",
+          "80% agent adoption rate"
+        ],
+        technologies: ["React", "Node.js", "PostgreSQL", "Mapbox", "Stripe"],
+        highlights: [
+          "AI-powered property recommendations",
+          "Neighborhood analytics",
+          "Document e-signature integration",
+          "Multi-language support",
+          "Mobile-responsive design"
+        ],
+        testimonial: {
+          quote: "Our new real estate portal has transformed how we do business. The intuitive interface and powerful tools have helped us close deals faster and provide better service to our clients.",
+          name: "Grace",
+          position: "Sales Director, Prime Properties",
+          image: "assets/images/testimonials/client4.jpg"
+        },
+        gallery: [
+          "assets/images/projects/realestate-listings.jpg",
+          "assets/images/projects/realestate-details.jpg",
+          "assets/images/projects/realestate-virtualtour.jpg"
+        ]
+      },
+      fooddelivery: {
+        title: "Food Delivery App",
+        subtitle: "On-demand food ordering and delivery platform",
+        overview: "A food delivery app that connected restaurants with hungry customers",
+        client: "QuickBite",
+        industry: "Food & Beverage",
+        services: "Mobile App Development",
+        year: "2022",
+        challenge: "QuickBite needed a reliable app to handle high-volume food orders, real-time tracking, and seamless payments.",
+        solution: "We developed iOS and Android apps with a robust backend to handle order processing, delivery routing, and payment processing.",
+        features: [
+          {
+            icon: "fa-utensils",
+            title: "Restaurant Listings",
+            description: "Browse menus from hundreds of local restaurants"
+          },
+          {
+            icon: "fa-map-marker-alt",
+            title: "Real-time Tracking",
+            description: "Follow your order from kitchen to doorstep"
+          },
+          {
+            icon: "fa-wallet",
+            title: "Secure Payments",
+            description: "Multiple payment options with fraud protection"
+          },
+          {
+            icon: "fa-star",
+            title: "Ratings System",
+            description: "Rate restaurants and delivery experience"
+          }
+        ],
+        results: "The app achieved impressive growth metrics:",
+        resultsList: [
+          "200% increase in orders",
+          "4.7/5 average app rating",
+          "25% repeat customer rate",
+          "95% on-time delivery rate"
+        ],
+        technologies: ["Flutter", "Firebase", "Google Maps API", "Stripe", "Node.js"],
+        highlights: [
+          "Cross-platform development",
+          "Real-time order tracking",
+          "Dynamic delivery routing",
+          "Loyalty program integration",
+          "Advanced analytics dashboard"
+        ],
+        testimonial: {
+          quote: "Tonaxels built us a food delivery app that exceeded all our expectations. The smooth user experience and reliable backend have been key to our rapid growth in a competitive market.",
+          name: "Michael",
+          position: "CEO, QuickBite",
+          image: "assets/images/testimonials/client5.jpg"
+        },
+        gallery: [
+          "assets/images/projects/foodapp-restaurants.jpg",
+          "assets/images/projects/foodapp-menu.jpg",
+          "assets/images/projects/foodapp-tracking.jpg"
+        ]
+      },
+      branding: {
+        title: "Brand Identity",
+        subtitle: "Comprehensive rebranding for a tech startup",
+        overview: "A complete brand transformation that elevated market positioning",
+        client: "Nexus Technologies",
+        industry: "Technology",
+        services: "UI/UX Design, Branding",
+        year: "2021",
+        challenge: "Nexus needed a fresh brand identity to reflect their innovative approach and stand out in a crowded market.",
+        solution: "We developed a complete brand system including logo, color palette, typography, and visual language.",
+        features: [
+          {
+            icon: "fa-palette",
+            title: "Color System",
+            description: "Vibrant, distinctive palette with accessibility compliance"
+          },
+          {
+            icon: "fa-font",
+            title: "Typography",
+            description: "Custom type hierarchy for digital and print"
+          },
+          {
+            icon: "fa-images",
+            title: "Visual Language",
+            description: "Iconography, illustration style, and photography guidelines"
+          },
+          {
+            icon: "fa-box-open",
+            title: "Brand Assets",
+            description: "Templates for presentations, documents, and marketing"
+          }
+        ],
+        results: "The rebranding had a dramatic impact:",
+        resultsList: [
+          "70% increase in brand recognition",
+          "40% more social media engagement",
+          "Higher perceived value in the market",
+          "Consistent brand expression across all touchpoints"
+        ],
+        technologies: ["Adobe Creative Suite", "Figma", "After Effects"],
+        highlights: [
+          "Logo design with multiple variants",
+          "Brand guidelines document",
+          "Motion graphics for digital platforms",
+          "Social media templates",
+          "Presentation templates"
+        ],
+        testimonial: {
+          quote: "Working with Tonaxels on our rebrand was a game-changer. They captured our vision perfectly and delivered a brand identity that has helped us attract better clients and talent.",
+          name: "Sarah",
+          position: "Marketing Director, Nexus Technologies",
+          image: "assets/images/testimonials/client6.jpg"
+        },
+        gallery: [
+          "assets/images/projects/branding-logo.jpg",
+          "assets/images/projects/branding-colors.jpg",
+          "assets/images/projects/branding-applied.jpg"
+        ]
+      }
+    };
+
+    // Load project data based on URL parameter
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('project') || 'ecommerce';
+      const project = projects[projectId] || projects.ecommerce;
+
+      // Update page title
+      document.title = `${project.title} | Tonaxels Technology`;
+
+      // Update hero section
+      document.getElementById('project-title').textContent = project.title;
+      document.getElementById('project-subtitle').textContent = project.subtitle;
+
+      // Update overview section
+      document.getElementById('project-overview-title').textContent = "Project Overview";
+      document.getElementById('project-overview-subtitle').textContent = project.overview;
+
+      // Update meta information
+      document.getElementById('project-client').textContent = project.client;
+      document.getElementById('project-industry').textContent = project.industry;
+      document.getElementById('project-services').textContent = project.services;
+      document.getElementById('project-year').textContent = project.year;
+
+      // Update challenge, solution, and results
+      document.getElementById('project-challenge').textContent = project.challenge;
+      document.getElementById('project-solution').textContent = project.solution;
+      document.getElementById('project-results').textContent = project.results;
+
+      // Update results list
+      const resultsList = document.getElementById('project-results-list');
+      resultsList.innerHTML = '';
+      project.resultsList.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        resultsList.appendChild(li);
+      });
+
+      // Update features
+      const featuresContainer = document.getElementById('project-features');
+      featuresContainer.innerHTML = '';
+      project.features.forEach(feature => {
+        const featureCard = document.createElement('div');
+        featureCard.className = 'feature-card';
+        featureCard.setAttribute('data-aos', 'fade-up');
+        featureCard.innerHTML = `
+          <div class="feature-icon">
+            <i class="fas ${feature.icon}"></i>
+          </div>
+          <h4>${feature.title}</h4>
+          <p>${feature.description}</p>
+        `;
+        featuresContainer.appendChild(featureCard);
+      });
+
+      // Update technologies
+      const techList = document.getElementById('tech-list');
+      techList.innerHTML = '';
+      project.technologies.forEach(tech => {
+        const badge = document.createElement('span');
+        badge.className = 'tech-badge';
+        badge.textContent = tech;
+        techList.appendChild(badge);
+      });
+
+      // Update highlights
+      const highlightsList = document.getElementById('project-highlights');
+      highlightsList.innerHTML = '';
+      project.highlights.forEach(highlight => {
+        const li = document.createElement('li');
+        li.textContent = highlight;
+        highlightsList.appendChild(li);
+      });
+
+      // Update testimonial
+      const testimonialContainer = document.getElementById('client-testimonial');
+      testimonialContainer.innerHTML = `
+        <div class="quote">
+          "${project.testimonial.quote}"
+        </div>
+        <div class="client-info">
+          <img src="${project.testimonial.image}" alt="${project.testimonial.name}">
+          <div class="client-details">
+            <h4>${project.testimonial.name}</h4>
+            <p>${project.testimonial.position}</p>
+          </div>
+        </div>
+      `;
+
+      // Update gallery
+      const galleryContainer = document.getElementById('project-gallery');
+      galleryContainer.innerHTML = '';
+      project.gallery.forEach(image => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.innerHTML = `
+          <img src="${image}" alt="${project.title} screenshot">
+        `;
+        galleryContainer.appendChild(galleryItem);
+      });
+    });
+  </script>
+  
+<script>
+  // Gallery functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentImageIndex = 0;
+    let galleryImages = [];
+    
+    function initGallery(images) {
+      galleryImages = images;
+      const mainGallery = document.getElementById('main-gallery-image');
+      const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+      
+      // Clear existing content
+      mainGallery.innerHTML = '';
+      thumbnailsContainer.innerHTML = '';
+      
+      // Add main image
+      if (galleryImages.length > 0) {
+        const img = document.createElement('img');
+        img.src = galleryImages[0];
+        img.alt = 'Project screenshot';
+        mainGallery.appendChild(img);
+        
+        // Add thumbnails
+        galleryImages.forEach((image, index) => {
+          const thumb = document.createElement('div');
+          thumb.className = `gallery-thumbnail ${index === 0 ? 'active' : ''}`;
+          thumb.innerHTML = `<img src="${image}" alt="Thumbnail ${index + 1}">`;
+          thumb.addEventListener('click', () => {
+            updateGallery(index);
+          });
+          thumbnailsContainer.appendChild(thumb);
+        });
+      }
+    }
+    
+    function updateGallery(index) {
+      if (index >= 0 && index < galleryImages.length) {
+        currentImageIndex = index;
+        const mainGallery = document.getElementById('main-gallery-image');
+        mainGallery.innerHTML = `<img src="${galleryImages[index]}" alt="Project screenshot">`;
+        
+        // Update active thumbnail
+        document.querySelectorAll('.gallery-thumbnail').forEach((thumb, i) => {
+          thumb.classList.toggle('active', i === index);
+        });
+      }
+    }
+    
+    // Navigation buttons
+    document.getElementById('gallery-prev').addEventListener('click', () => {
+      const newIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGallery(newIndex);
+    });
+    
+    document.getElementById('gallery-next').addEventListener('click', () => {
+      const newIndex = (currentImageIndex + 1) % galleryImages.length;
+      updateGallery(newIndex);
+    });
+    
+    // Initialize with empty gallery
+    initGallery([]);
+    
+    // This would be called when project data is loaded
+    window.updateProjectGallery = function(images) {
+      initGallery(images);
+    };
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - Join Tonaxels Technology</title>
+  <meta name="description" content="Explore career opportunities at Tonaxels Technology">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+     :root {
+      --primary-blue: #2962ff;
+      --dark-blue:rgb(53, 128, 240);
+      --light-blue: #e3f2fd;
+      --light-gray: #f5f7fa;
+      --dark-gray:rgb(89, 92, 94);
+      --medium-gray: #607d8b;
+      --white: #ffffff;
+      --black: #212121;
+      --success: #4caf50;
+      --error: #f44336;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+      --max-width: 1200px;
+    }
+
+    [data-theme="dark"] {
+      --light-gray: #121212;
+      --dark-gray: #e0e0e0;
+      --medium-gray: #b0bec5;
+      --white: #1e1e1e;
+      --black: #f5f5f5;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.25);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .logo img {
+      height: 100px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: var(--transition);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-blue);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-blue);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--dark-gray);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--dark-gray);
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      color: var(--primary-blue);
+      transform: rotate(30deg);
+    }
+
+    /* Hero Section */
+    .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+  }
+
+  /* Video Container */
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  /* Video Styling */
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Fallback Image Styling (shown when video can't load) */
+  .video-container img {
+    display: none; /* Initially hidden */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Video Overlay */
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   /* background: linear-gradient(135deg, rgba(41, 98, 255, 0.85), rgba(13, 71, 161, 0.85));*/
+  }
+
+  /* Fallback for browsers that don't support video */
+  .no-video .video-container video {
+    display: none;
+  }
+  .no-video .video-container img {
+    display: block;
+  }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+   
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: var(--transition);
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--white);
+      color: var(--primary-blue);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--medium-gray);
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      transition: var(--transition);
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 1.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-gray);
+    }
+
+    .card p {
+      color: var(--medium-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-blue);
+      font-weight: 500;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .card-link:hover {
+      gap: 1rem;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Services Section */
+    .services .card {
+      text-align: center;
+    }
+
+    /* Portfolio Section */
+    .portfolio-item {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(41, 98, 255, 0.9);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Technologies Section */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .tech-icon:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tech-icon img {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      position: relative;
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 4rem;
+      font-family: serif;
+      color: var(--primary-blue);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--medium-gray);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark-gray);
+    }
+
+    .author-info p {
+      font-size: 0.875rem;
+      color: var(--medium-gray);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: var(--transition);
+      background-color: var(--light-gray);
+      color: var(--dark-gray);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      background-color: var(--dark-blue);
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--light-blue);
+      color: var(--primary-blue);
+      border-radius: 50%;
+      font-size: 1.25rem;
+    }
+
+    .contact-details h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--dark-gray);
+    }
+
+    .contact-details a {
+      color: var(--medium-gray);
+      transition: var(--transition);
+    }
+
+    .contact-details a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-blue);
+      color: var(--white);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo img {
+      height: 100px;
+    }
+
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background-color: var(--primary-blue);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-links h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary-blue);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary-blue);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0.8;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border-radius: 50%;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.75rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 1.5rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transform: translateY(-150%);
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mt-4 { margin-top: 2rem; }
+    .mt-5 { margin-top: 3rem; }
+
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 2rem; }
+    .mb-5 { margin-bottom: 3rem; }
+    /* Careers Specific Styles */
+    .careers-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .careers-intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .job-openings {
+      margin-bottom: 4rem;
+    }
+    
+    .job-card {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+    
+    .job-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .job-title {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+    }
+    
+    .job-type {
+      background-color: var(--light-blue);
+      color: var(--primary-blue);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .job-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--medium-gray);
+    }
+    
+    .job-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .job-description {
+      margin-bottom: 1.5rem;
+      color: var(--medium-gray);
+    }
+    
+    .job-requirements h4 {
+      margin-bottom: 0.75rem;
+      color: var(--dark-gray);
+    }
+    
+    .job-requirements ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--medium-gray);
+    }
+    
+    .job-requirements li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .benefits-section {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .benefit-item {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .benefit-icon {
+      color: var(--primary-blue);
+      font-size: 1.5rem;
+    }
+    
+    .benefit-content h4 {
+      margin-bottom: 0.5rem;
+      color: var(--dark-gray);
+    }
+    
+    .benefit-content p {
+      color: var(--medium-gray);
+    }
+    
+    .application-form {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    
+    .file-upload {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+    }
+    
+    .file-upload-label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+    
+    .file-input {
+      display: none;
+    }
+    
+    .file-custom {
+      border: 1px dashed #ddd;
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .file-custom:hover {
+      border-color: var(--primary-blue);
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+<nav>
+  <div class="nav-container container">
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo.png" alt="Tonaxels Technology Logo">
+      <span>TONAXELS'</span>
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="technologies.html">Technologies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <section class="careers" id="careers">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Join Our Team</h2>
+      <p>Build the future with us</p>
+    </div>
+    
+    <div class="careers-container">
+      <div class="careers-intro" data-aos="fade-up">
+        <h3>Why Work at Tonaxels Technology?</h3>
+        <p>We're a team of passionate technologists dedicated to building innovative digital solutions that make a real impact. At Tonaxels, you'll have the opportunity to work on challenging projects, grow your skills, and be part of a collaborative culture that values creativity and excellence.</p>
+      </div>
+      
+      <div class="benefits-section" data-aos="fade-up">
+        <h3 class="text-center">Our Benefits</h3>
+        <div class="benefits-grid">
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="benefit-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Cutting-Edge Technology</h4>
+              <p>Work with the latest technologies and tools in web and mobile development.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="benefit-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Learning & Growth</h4>
+              <p>Access to training, conferences, and mentorship opportunities.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="benefit-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Health & Wellness</h4>
+              <p>Comprehensive health insurance and wellness programs.</p>
+            </div>
+          </div>
+          
+          <div class="benefit-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="benefit-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="benefit-content">
+              <h4>Flexible Work</h4>
+              <p>Hybrid work model with flexible hours and remote options.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="job-openings" data-aos="fade-up">
+        <h3 class="text-center mb-4">Current Openings</h3>
+        
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">Senior Frontend Developer</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> Nairobi or Remote</span>
+            <span class="job-meta-item"><i class="fas fa-briefcase"></i> 3+ years experience</span>
+            <span class="job-meta-item"><i class="fas fa-calendar-alt"></i> Posted 2 weeks ago</span>
+          </div>
+          <div class="job-description">
+            <p>We're looking for an experienced Frontend Developer to lead the development of user interfaces for our client projects. You'll work with React, TypeScript, and modern CSS to build responsive, accessible web applications.</p>
+          </div>
+          <div class="job-requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>3+ years professional experience with React</li>
+              <li>Strong proficiency in JavaScript/TypeScript</li>
+              <li>Experience with state management (Redux, Context API)</li>
+              <li>Knowledge of modern CSS frameworks (Tailwind, CSS-in-JS)</li>
+              <li>Experience with testing frameworks (Jest, React Testing Library)</li>
+              <li>Excellent problem-solving and communication skills</li>
+            </ul>
+          </div>
+          <a href="#apply" class="btn btn-primary">Apply Now</a>
+        </div>
+        
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">Mobile App Developer (Flutter)</h3>
+            <span class="job-type">Full-time</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> Nairobi</span>
+            <span class="job-meta-item"><i class="fas fa-briefcase"></i> 2+ years experience</span>
+            <span class="job-meta-item"><i class="fas fa-calendar-alt"></i> Posted 1 week ago</span>
+          </div>
+          <div class="job-description">
+            <p>Join our mobile team to build cross-platform applications using Flutter. You'll collaborate with designers and backend developers to create beautiful, performant apps for iOS and Android.</p>
+          </div>
+          <div class="job-requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>2+ years experience with Flutter development</li>
+              <li>Proficiency in Dart programming language</li>
+              <li>Experience with state management solutions (Provider, Bloc)</li>
+              <li>Knowledge of RESTful APIs and integration</li>
+              <li>Understanding of mobile app architecture patterns</li>
+              <li>Published apps in App Store or Play Store is a plus</li>
+            </ul>
+          </div>
+          <a href="#apply" class="btn btn-primary">Apply Now</a>
+        </div>
+        
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">UI/UX Designer</h3>
+            <span class="job-type">Contract</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-meta-item"><i class="fas fa-map-marker-alt"></i> Remote</span>
+            <span class="job-meta-item"><i class="fas fa-briefcase"></i> 3+ years experience</span>
+            <span class="job-meta-item"><i class="fas fa-calendar-alt"></i> Posted 3 days ago</span>
+          </div>
+          <div class="job-description">
+            <p>We're seeking a talented UI/UX Designer to create intuitive, visually appealing interfaces for web and mobile applications. You'll work closely with our development team and clients to design user-centered solutions.</p>
+          </div>
+          <div class="job-requirements">
+            <h4>Requirements:</h4>
+            <ul>
+              <li>3+ years experience in UI/UX design</li>
+              <li>Strong portfolio showcasing web and mobile designs</li>
+              <li>Proficiency in Figma, Adobe XD, or Sketch</li>
+              <li>Understanding of design systems and component libraries</li>
+              <li>Experience with user research and usability testing</li>
+              <li>Knowledge of accessibility standards</li>
+            </ul>
+          </div>
+          <a href="#apply" class="btn btn-primary">Apply Now</a>
+        </div>
+      </div>
+      
+      <div class="application-form" id="apply" data-aos="fade-up">
+        <h3 class="text-center mb-4">Application Form</h3>
+        <form id="careerForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" id="firstName" name="firstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" id="lastName" name="lastName" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="position" class="form-label">Position Applying For</label>
+            <select id="position" name="position" class="form-control" required>
+              <option value="">Select a position</option>
+              <option value="Senior Frontend Developer">Senior Frontend Developer</option>
+              <option value="Mobile App Developer (Flutter)">Mobile App Developer (Flutter)</option>
+              <option value="UI/UX Designer">UI/UX Designer</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Cover Letter</label>
+            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+          </div>
+          
+          <div class="file-upload">
+            <label class="file-upload-label">Resume/CV (PDF or DOCX)</label>
+            <input type="file" id="resume" name="resume" class="file-input" accept=".pdf,.doc,.docx" required>
+            <label for="resume" class="file-custom">
+              <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
+              <p>Click to upload or drag and drop</p>
+              <p class="text-sm">Max file size: 5MB</p>
+            </label>
+          </div>
+          
+          <div class="file-upload">
+            <label class="file-upload-label">Portfolio (Optional)</label>
+            <input type="file" id="portfolio" name="portfolio" class="file-input" accept=".pdf,.doc,.docx,.jpg,.png">
+            <label for="portfolio" class="file-custom">
+              <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
+              <p>Click to upload or drag and drop</p>
+              <p class="text-sm">Max file size: 10MB</p>
+            </label>
+          </div>
+          
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-about">
+        <div class="footer-logo">
+          <img src="assets/images/logo.png" alt="Tonaxels Technology Logo">
+          <span>Tonaxels</span>
+        </div>
+        <p>We build custom digital solutions that help businesses grow and succeed in the modern world.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="technologies.html">Technologies</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">Mobile App Development</a></li>
+          <li><a href="services.html">UI/UX Design</a></li>
+          <li><a href="services.html">Digital Marketing</a></li>
+          <li><a href="services.html">Cloud Solutions</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-service.html">Terms of Service</a></li>
+          <li><a href="careers.html" class="active">Careers</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> Tonaxels Technology. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-in-out'
+    });
+    
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      themeToggle.innerHTML = theme === 'light' 
+        ? '<i class="fas fa-moon"></i>' 
+        : '<i class="fas fa-sun"></i>';
+    }
+    
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+    
+    backToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Update copyright year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Form validation
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if (!name || !email || !message) {
+          alert('Please fill in all required fields');
+          return;
+        }
+        
+        // Simulate form submission
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+      });
+    }
+    
+    // Active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+     // Video fallback detection
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('hero-video');
+    
+    // Check if video can play
+    video.addEventListener('error', function() {
+      document.querySelector('.hero').classList.add('no-video');
+    });
+    
+    // Mobile fallback (optional)
+    if(window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      document.querySelector('.hero').classList.add('no-video');
+      video.pause();
+    }
+  });
+  // Careers specific script
+  document.getElementById('careerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Basic validation
+    const resume = document.getElementById('resume').files[0];
+    if (resume && resume.size > 5 * 1024 * 1024) {
+      alert('Resume file size must be less than 5MB');
+      return;
+    }
+    
+    const portfolio = document.getElementById('portfolio').files[0];
+    if (portfolio && portfolio.size > 10 * 1024 * 1024) {
+      alert('Portfolio file size must be less than 10MB');
+      return;
+    }
+    
+    // Simulate form submission
+    alert('Thank you for your application! We will review your materials and get back to you soon.');
+    this.reset();
+  });
+  
+  // Update file input display
+  document.getElementById('resume').addEventListener('change', function() {
+    const label = this.nextElementSibling;
+    if (this.files.length > 0) {
+      label.innerHTML = `<i class="fas fa-check-circle fa-2x mb-2" style="color:var(--success)"></i><p>${this.files[0].name}</p>`;
+    }
+  });
+  
+  document.getElementById('portfolio').addEventListener('change', function() {
+    const label = this.nextElementSibling;
+    if (this.files.length > 0) {
+      label.innerHTML = `<i class="fas fa-check-circle fa-2x mb-2" style="color:var(--success)"></i><p>${this.files[0].name}</p>`;
+    }
+  });
+</script>
+</body>
+</html>
